@@ -11,7 +11,7 @@ def create_table():
         CREATE TABLE IF NOT EXISTS authors (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT NOT NULL,
-            category TEXT NOT NULL
+         
         )
     ''')
     CURSOR.execute('''

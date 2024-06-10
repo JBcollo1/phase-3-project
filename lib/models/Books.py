@@ -25,19 +25,20 @@ class books:
         """)
     
         return CURSOR.fetchall() 
-
-    def find_by_name ( self,title):
+    @classmethod
+    def find_by_id ( cls, id):
         sql = """
                 SELECT books.title, authors.name
                 FROM books
                 LEFT JOIN authors
-                ON books.authors_id = authors.id
-                WHERE books.title = ?
+                ON books.author_id = authors.id
+                WHERE books.id = ?
         """
-        CURSOR.execute(sql, (self._title,))
+        CURSOR.execute(sql, (id,))
         return CURSOR.fetchone() 
-    def delete_book( self,id):
-        CURSOR.execute("DELETE FROM books WHERE id = ?", int(self._id,))
+    @classmethod
+    def delete_book( cls,id):
+        CURSOR.execute("DELETE FROM books WHERE id = ?", (id,))
         CONN.commit()
 
     
