@@ -4,5 +4,5 @@
 
 
 def exit_program():
-    print("Goodbye!")
+    print("Goodbye! 🙌")
     exit()

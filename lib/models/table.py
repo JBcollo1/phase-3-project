@@ -11,6 +11,7 @@ def create_table():
         CREATE TABLE IF NOT EXISTS authors (
             id INTEGER PRIMARY KEY ,
             name TEXT 
+            cartegory TEXT
                    
         )
     ''')
