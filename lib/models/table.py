@@ -10,8 +10,7 @@ def create_table():
     CURSOR.execute('''
         CREATE TABLE IF NOT EXISTS authors (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT NOT NULL,
-         
+            name TEXT NOT NULL
         )
     ''')
     CURSOR.execute('''
@@ -20,11 +19,11 @@ def create_table():
             title TEXT NOT NULL,
             author_id INTEGER,
             borrower_id INTEGER,
-            FOREIGN KEY (author_id) REFERENCES authors (id),
-            FOREIGN KEY (borrower_id) REFERENCES borrowers (id)
+            FOREIGN KEY (author_id) REFERENCES authors(id),
+            FOREIGN KEY (borrower_id) REFERENCES borrowers(id)
         )
     ''')
 
     CONN.commit()
-    # CONN.close()
+
 

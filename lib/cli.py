@@ -2,9 +2,10 @@
 
 from helpers import (
     exit_program,
-    helper_1
+    
 )
 from models.Books import books
+from models.Authors import Author
 from models.table import create_table
 create_table()
 
@@ -43,6 +44,17 @@ def main():
                 print("Book deleted successfully.")
             else:
                 print("Book not found.")
+
+        elif choice == "5":
+            id = input("Enter Author ID: ")
+            name = input("Enter Author Name: ")
+            Author.add_author(id , name)
+            print("Author added successfully.")
+
+        elif choice == "6":
+            author_list = Author.author_list()  
+            for author in author_list:
+                print(f"Author ID: {author[0]}, Author Name {author[1]}")      
                 
         else:
             print("Invalid choice")
@@ -55,6 +67,9 @@ def menu():
     print("2. List all books")
     print("3. Find a book by ID")
     print("4. Delete a book by ID")
+    print("5. Add author")
+    print("6. List all authors and their id")
+
 
 
 if __name__ == "__main__":

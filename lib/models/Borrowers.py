@@ -2,7 +2,7 @@ from models.__init__ import CURSOR, CONN
 from models.table import create_table
 create_table()
 
-class Author:
+class Borrowers:
     def __init__(self):
         self._id = None
         self._name = None
@@ -21,12 +21,12 @@ class Author:
         if self._id is None or self._name is None:
             raise ValueError("ID and Name must be set before saving")
         
-        CURSOR.execute("SELECT id FROM authors WHERE id = ?", (self._id,))
+        CURSOR.execute("SELECT id FROM borrowers WHERE id = ?", (self._id,))
         if CURSOR.fetchone():
-            raise ValueError(f"Author with id {self._id} already exists")
+            raise ValueError(f"Borrower with id {self._id} already exists")
         
         sql = """
-        INSERT INTO authors (id, name)  
+        INSERT INTO borrowers (id, name)  
         VALUES (?, ?)  
         """
         CURSOR.execute(sql, (self._id, self._name))
