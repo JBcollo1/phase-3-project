@@ -27,7 +27,7 @@ def main():
         elif choice == "2":
             book_list = books.book_list()
             for book in book_list:
-              print(f"BOOK ID: {book[0]}, Book Name: {book[1]}, Author ID: {book[2]}, Borrower ID: {book[3]}")
+                print(f"BOOK ID: {book[0]}, Book Name: {book[1]}, Author ID: {book[2]}, Borrower ID: {book[3]}")
         elif choice == "3":
             id = input("Title ID: ")
             book = books.find_by_id(id)
@@ -48,13 +48,14 @@ def main():
         elif choice == "5":
             id = input("Enter Author ID: ")
             name = input("Enter Author Name: ")
-            Author.add_author(id , name)
+            author = Author(id, name)
+            author.save()
             print("Author added successfully.")
 
         elif choice == "6":
             author_list = Author.author_list()  
             for author in author_list:
-                print(f"Author ID: {author[0]}, Author Name {author[1]}")      
+                print(f"Author ID: {author[0]}, Author Name: {author[1]}")      
                 
         else:
             print("Invalid choice")
