@@ -24,11 +24,15 @@ def main():
             book = books(id, title, author_id, borrower_id)
             book.save()
             print("Book added successfully.")
+            print("-----LIBRARY MANAGEMENT SYSTEM-----")
+
             
         elif choice == "2":
             book_list = books.book_list()
             for book in book_list:
                 print(f"BOOK ID: {book[0]}, Book Name: {book[1]}, Author ID: {book[2]}, Borrower ID: {book[3]}")
+                
+
         elif choice == "3":
             id = input("Title ID: ")
             book = books.find_by_id(id)
@@ -43,8 +47,12 @@ def main():
             if book:
                 books.delete_book(id)
                 print("Book deleted successfully.")
+                print("-----LIBRARY MANAGEMENT SYSTEM-----")
+
             else:
                 print("Book not found.")
+                print("-----LIBRARY MANAGEMENT SYSTEM-----")
+
 
         elif choice == "5":
             id = input("Enter Author ID: ")
@@ -53,12 +61,15 @@ def main():
             author = Author(id, name, category)
             author.add_author()
             print("Author added successfully.")
+            print("-----LIBRARY MANAGEMENT SYSTEM-----")
+
 
         elif choice == "6":
             author_list = Author.author_list()  
             for author in author_list:
                 print(f"Author ID: {author[0]}, Author Name: {author[1]}, Author Subject Matter: {author[2]}, Authors Book: {author[3]}") 
         elif choice == "7":
+            print("-----LIBRARY MANAGEMENT SYSTEM-----")
             print("Please select an option:")
             print("1. Update Name ")
             print("2. update Subject Matter ")
@@ -79,18 +90,23 @@ def main():
                 if author:
                     Author.delete_author(id)
                     print("Author deleted successfully.")
+                    print("-----LIBRARY MANAGEMENT SYSTEM-----")
+
                 else:
                     print("Author not found.")
+                    print("-----LIBRARY MANAGEMENT SYSTEM-----")
+
 
             elif update == "4":
                 exit_program()
 
         elif choice == "8":
+            print("-----LIBRARY MANAGEMENT SYSTEM-----")
             print("Please select an option")
             print("1. Add patron information ")
             print("2. List Patrons ")
             print("3. Delete Patron Details")
-            print("4. Exit ")
+            print("4. Exit Program ")
             update = input ("Patron Details: ")
             if update == "1":
                 id = input("Patron ID ID: ")
@@ -124,6 +140,7 @@ def main():
 
 
 def menu():
+    print("-----LIBRARY MANAGEMENT SYSTEM-----")
     print("Please select an option:")
     print("0. Exit the program")
     print("1. Add a new book")

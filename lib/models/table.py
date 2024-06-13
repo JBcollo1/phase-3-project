@@ -10,8 +10,8 @@ def create_table():
     CURSOR.execute('''
         CREATE TABLE IF NOT EXISTS authors (
             id INTEGER PRIMARY KEY ,
-            name TEXT NOT NULL
-            cartegory TEXT
+            name TEXT NOT NULL,
+            category TEXT
                    
         )
     ''')
