@@ -32,6 +32,8 @@ class Author:
     
     @classmethod
     def update_author_name(cls, author_id, new_name):
+        if not new_name or not isinstance(new_name, str):
+            raise ValueError("New name must be a non-empty string")
         sql = """
         UPDATE authors
         SET name = ?
