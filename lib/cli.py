@@ -78,9 +78,9 @@ def main():
                 author = Author.find_by_id(id)
                 if author:
                     Author.delete_author(id)
-                    print("Book deleted successfully.")
+                    print("Author deleted successfully.")
                 else:
-                    print("Book not found.")
+                    print("Author not found.")
 
             elif update == "4":
                 exit_program()
@@ -108,9 +108,9 @@ def main():
                 patron = Borrowers.find_by_id(id)
                 if patron:
                     Borrowers.delete_patron(id)
-                    print("Book deleted successfully.")
+                    print("Patron deleted successfully.")
                 else:
-                    print("Book not found.")
+                    print("Patron not found.")
 
             elif update == "4":
                 exit_program()
