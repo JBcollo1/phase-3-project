@@ -107,7 +107,7 @@ def main():
                 id = input("Patron ID: ")
                 patron = Borrowers.find_by_id(id)
                 if patron:
-                    Borrowers.delete_author(id)
+                    Borrowers.delete_patron(id)
                     print("Book deleted successfully.")
                 else:
                     print("Book not found.")

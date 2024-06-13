@@ -11,9 +11,9 @@ class Author:
         self._category = category
 
     def add_author(self):
-        CURSOR.execute("SELECT id FROM  books WHERE id = ?", (self._id,))
+        CURSOR.execute("SELECT id FROM  authors WHERE id = ?", (self._id,))
         if CURSOR.fetchone():
-            raise ValueError(f"Book with id {self._id} already exists")
+            raise ValueError(f"Author with id {self._id} already exists")
         sql = """
         INSERT INTO authors (id, name, category)  
         VALUES (?, ?, ?)  
@@ -51,17 +51,17 @@ class Author:
     @classmethod
     def find_by_id ( cls, id):
         sql = """
-                SELECT *
+                SELECT authors.name
                 FROM authors
                
-                WHERE books.id = ?
+                WHERE authors.id = ?
         """
         CURSOR.execute(sql, (id,))
         return CURSOR.fetchone() 
     @classmethod
     def delete_author( cls,id):
         sql = """
-             DELETE *
+             DELETE 
              FROM authors
              WHERE id = ?
         """

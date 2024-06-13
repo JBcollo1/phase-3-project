@@ -32,17 +32,17 @@ class Borrowers:
     @classmethod
     def find_by_id ( cls, id):
         sql = """
-                SELECT *
+                SELECT borrowers.name
                 FROM borrowers
                
-                WHERE books.id = ?
+                WHERE borrowers.id = ?
         """
         CURSOR.execute(sql, (id,))
         return CURSOR.fetchone() 
     @classmethod
     def delete_patron( cls,id):
         sql = """
-             DELETE *
+             DELETE 
              FROM borrowers
              WHERE id = ?
         """
